@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc} % Kodowanie UTF-8
+\usepackage[T1]{fontenc} % Obsługa polskich znaków
+\usepackage{lmodern} % Użycie nowoczesnych czcionek
+\usepackage[polish]{babel} % Obsługa języka polskiego
+\usepackage{amsmath} % Dla równan matematycznych
+
+\begin{document}
+	
+	\section*{Wyprowadzenie równań dla wymiennika typu „rura w rurze”}
+	
+	Wymiennik ciepła składa się ze ścianek: wewnętrznej (\( T_p(t) \)) i zewnętrznej (\( T_c(t) \)). Założenia:
+	\begin{itemize}
+		\item Wewnętrzna ścianka wymienia ciepło z gorącym medium (\( T_s(t) \)) i zimnym medium (\( T_t(t) \)).
+		\item Zewnętrzna ścianka wymienia ciepło z zimnym medium (\( T_t(t) \)) oraz otoczeniem (\( T_o(t) \)).
+		\item Uwzględnione są ciepła właściwe i masy ścianek, które akumulują energię cieplną oraz otoczenie wymiennika.
+	\end{itemize}
+	
+	
+	\subsubsection*{Podstawowe równanie bilansu ciepła}
+	\[
+	Q = m  c \Delta T,
+	\]
+	gdzie:\\
+	
+	Q - ilość ciepła [J],\\
+	
+	m - masa substancji [kg],\\
+	
+	c - ciepło właściwe danej substancji  \( \left[\frac{J}{(kgK)}\right] 
+	\)\leavevmode
+	
+	
+	\subsubsection*{Temperatura gorącego medium (\( T_s(t) \))}
+	
+	Równanie bilansu energii:
+	\[
+	m_s c_s \frac{dT_s(t)}{dt} = {Q}_{t \to s} - {Q}_{s \to p},
+	\]
+	gdzie:
+	\[
+	{Q}_{si \to s} = \dot{m}_s (t) c_s \big(T_{si} - T_s(t) \big) 
+	\]
+	\[
+	{Q}_{s \to p} =\alpha_{sp} A_{sp} \big(T_s(t) - T_p(t)\big).
+	\]
+	
+	Podstawiając:
+	\[
+	m_s c_s \frac{dT_s(t)}{dt} = \dot{m}_s (t) c_s \big(T_{si} - T_s(t) \big) - \alpha_{sp} A_{sp} \big(T_s(t) - T_p(t)\big).
+	\]
+	
+	Dzieląc przez \( m_s c_s \):
+	\[
+	\frac{dT_s(t)}{dt} = \frac{1}{m_s c_s} \left[\dot{m}_s (t) c_s \big(T_{si} - T_s(t) \big) - \alpha_{sp} A_{sp} \big(T_s(t) - T_p(t)\big)\right].
+	\]
+	
+	
+	
+	\subsection*{Równanie dla temperatury wewnętrznej ścianki (\( T_p(t) \))}
+	
+	Równanie bilansu energii dla wewnętrznej ścianki:
+	\[
+	m_p c_p \frac{dT_p(t)}{dt} = {Q}_{s \to p} - {Q}_{p \to t},
+	\]
+	gdzie:
+	\[
+	{Q}_{p \to t} = \alpha_{pt} A_{pt} \big(T_p(t) - T_t(t)\big),
+	\]
+	
+	Podstawiając wyrażenia na strumienie ciepła:
+	\[
+	m_p c_p \frac{dT_p(t)}{dt} = \alpha_{sp} A_{sp} \big(T_s(t) - T_p(t)\big) -\alpha_{pt} A_{pt} \big(T_p(t) - T_t(t)\big).
+	\]
+	
+	Dzieląc przez \( m_p c_p \):
+	\[
+	\frac{dT_p(t)}{dt} = \frac{1}{m_p c_p} \left[ \alpha_{sp} A_{sp} \big(T_s(t) - T_p(t)\big) -\alpha_{pt} A_{pt} \big(T_p(t) - T_t(t)\big) \right].
+	\]
+	
+	\subsubsection*{Temperatura zimnego medium (\( T_t(t) \))}
+	
+	Równanie bilansu energii:
+	\[
+	m_c c_c \frac{dT_t(t)}{dt} = {Q}_{p \to t} -{Q}_{t \to ti}-{Q}_{t \to c} ,
+	\]
+	gdzie:
+	\[
+	{Q}_{t \to ti} = \dot{m}_t (t) c_t \big(T_t(t) - T_{ti} \big).
+	\]
+	\[
+	{Q}_{t \to c} = \alpha_{tc} A_{tc} \big(T_t(t) - T_c(t)\big),
+	\]
+	
+	
+	Podstawiając:
+	\[
+	m_t c_t \frac{dT_t(t)}{dt} = \alpha_{pt} A_{pt} \big(T_p(t) - T_t(t)\big) -  \dot{m}_t (t) c_t \big(T_t(t) - T_{ti} \big) -\alpha_{tc} A_{tc} \big(T_t(t) - T_c(t)\big).
+	\]
+	
+	Dzieląc przez \( m_t c_t \):
+	\[
+	\frac{dT_t(t)}{dt} = \frac{1}{m_t c_t} \left[ \alpha_{pt} A_{pt} \big(T_p(t) - T_t(t)\big) -  \dot{m}_t (t) c_t \big(T_t(t) - T_{ti} \big) -\alpha_{tc} A_{tc} \big(T_t(t) - T_c(t)\big) \right].
+	\]
+	
+	\subsection*{Równanie dla temperatury zewnętrznej ścianki (\( T_c(t) \))}
+	
+	Równanie bilansu energii dla zewnętrznej ścianki:
+	\[
+	m_c c_c \frac{dT_c(t)}{dt} = {Q}_{t \to c} - {Q}_{c \to o},
+	\]
+	gdzie:
+	\[
+	{Q}_{c \to o} = \alpha_{co} A_{co} \big(T_c(t) - T_o\big),
+	\]
+	
+	Podstawiając wyrażenia na strumienie ciepła:
+	\[
+	m_c c_c \frac{dT_c(t)}{dt} = \alpha_{tc} A_{tc} \big(T_t(t) - T_c(t)\big) - \alpha_{co} A_{co} \big(T_c(t) - T_o\big).
+	\]
+	
+	Dzieląc przez \( m_p c_p \):
+	\[
+	\frac{dT_p(t)}{dt} = \frac{1}{m_c c_c} \left[ \alpha_{tc} A_{tc} \big(T_t(t) - T_c(t)\big) - \alpha_{co} A_{co} \big(T_c(t) - T_o\big) \right].
+	\]
+	
+			
+	\section*{Legenda}
+	
+	\begin{itemize}
+		\item \( T_s(t), T_p(t), T_t(t), T_c(t) \): Temperatury: gorącego medium,  wewnętrznej ścianki, zimnego medium i zewnętrznej ścianki,
+		\item \( \alpha_{sp}, \alpha_{pt},\alpha_{tc},\alpha_{co} \): współczynniki przejmowania ciepła,
+		\item \( A_{sp}, A_{pt}, A_{tc}, A_{co} \): powierzchnie wymiany ciepła,
+		\item \( m_s, m_p, m_t, m_c \): masy odpowiednich warstw,
+		\item \( c_s, c_p, c_t, c_c \): ciepła właściwe odpowiednich warstw,
+		\item \( \dot{m}_s(t), \dot{m}_t(t) \): strumienie masowe gorącego i zimnego medium,
+		\item \( T_{si}, T_{ti} \): temperatury wejściowe gorącego i zimnego medium.
+	\end{itemize}
+\end{document}
